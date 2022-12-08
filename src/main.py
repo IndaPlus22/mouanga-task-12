@@ -8,7 +8,7 @@ The simulation is based on chapter 1 of The Nature of Code: https://natureofcode
 
 import pygame, sys
 from vectors import *
-
+pygame.init()
 
 
 # set color constants
@@ -26,6 +26,9 @@ HEIGHT = 720
 # set FPS
 FPS = 60
 
+# set font
+FONT = pygame.font.Font("freesansbold.ttf", 15)
+
 # initialize the window
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
@@ -41,7 +44,8 @@ def handle_events():
                 sys.exit(0)
             
             case pygame.MOUSEBUTTONDOWN:
-                p = Vector(mouse_position[0], mouse_position[1])
+                
+                p = Vector(mouse_position[0] - WIDTH/2, mouse_position[1] - HEIGHT/2)
                 print(p)
                 print(f"My length is {p.len()}")
                 print(f"My angle is {p.rot()}")
@@ -50,7 +54,23 @@ def handle_events():
 
 # update the frame
 def update():
+    mouse_position = pygame.mouse.get_pos()
+    p = Vector(mouse_position[0] - WIDTH/2, mouse_position[1] - HEIGHT/2)
+    text = FONT.render(
+        f"({p.x}, {p.y}) | len: {p.len()} | angle: {p.rot()}",
+        False,
+        BLACK
+    )
+    # draw background
     screen.fill(WHITE)
+    screen.blit(text, pygame.mouse.get_pos())
+
+    # draw the origin
+    pygame.draw.circle(screen, BLACK, (WIDTH/2, HEIGHT/2), 10, 0)
+
+    # draw text
+    
+    pygame.display.flip()
     pygame.display.update()
 
 
@@ -62,7 +82,7 @@ def main():
     while running:
         clock.tick(FPS)
         handle_events()
-        pygame.display.update()
+        update()
 
 
     

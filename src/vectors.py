@@ -5,7 +5,7 @@ Description: A module that defines the sign(x) function as well as the Vector cl
 
 """
 
-from math import atan, sqrt, pi
+from math import acos, sqrt, pi
 
 # get sign of a number
 def sign(x):
@@ -36,18 +36,22 @@ class Vector:
     # get angle, in radians, of a vector
     # where 0 is to the right and positive angles are measured counterclockwise relative to the x axis
     def rot(self):
-        # i think this is how it works right?
-        if self.x == 0:
-            # we put the negative sign because in pygame, negative y means up
-            return pi/2 * -sign(self.y)
 
-        return atan(-self.y/self.x)
+        if self.len() == 0:
+            return 0 # and avoid the division by zero error
+
+        if self.y > 0:
+            return -acos(self.x / self.len())
+
+        return acos(self.x / self.len())
     
     # normalize the vector to length 1
     def normalize(self):
         if self.len() != 0:
-            self.x /= self.len()
-            self.y /= self.len()
+            # we store the starting length first, so it doesn't change between divisions
+            len = self.len()
+            self.x /= len
+            self.y /= len
     
     # add a vector to this vector
     def add(self, vec):
