@@ -66,7 +66,7 @@ def main():
 
 
     
-    # if the program is not "running", end the programm
+    # after the program has finished "running", end the program
     sys.exit(0)
             
 

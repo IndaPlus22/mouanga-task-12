@@ -63,5 +63,11 @@ class Vector:
     def scale(self, scalar):
         self.x *= scalar
         self.y *= scalar
+    
+    # check if this vector is the same as another vector
+    def equals(self, vec):
+        if self.x == vec.x and self.y == vec.y:
+            return True
+        return False
 
     
