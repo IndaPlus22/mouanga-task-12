@@ -9,6 +9,7 @@ install pytest and pygame on your computer by using the following command in you
 
 
 > pip install pytest
+> 
 > pip install pygame
 
 
