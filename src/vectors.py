@@ -1,22 +1,11 @@
 """
 
 Author: Anders Mouanga (salticecream)
-Description: A module that defines the sign(x) function as well as the Vector class.
+Description: A module that defines the Vector class.
 
 """
 
 from math import acos, sqrt, pi
-
-# get sign of a number
-def sign(x):
-    if x < 0:
-        return -1
-
-    elif x == 0:
-        return 0
-
-    return -1
-
 class Vector:
 
     # constructor code
