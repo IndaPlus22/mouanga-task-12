@@ -5,7 +5,7 @@
 a simulation, powered by vectors, where you control a ball with the help of your mouse and your 1-3 keys.
 
 ## Prerequisites
-install pytest and pygame on your computer by using the following command in your terminal (or command prompt/git bash, if you're not a cringe mac/linux user)
+install pytest and pygame on your computer by using the following commands in your terminal (or command prompt/git bash, if you're not a cringe mac/linux user)
 
 
 > pip install pytest
