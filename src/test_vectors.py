@@ -2,11 +2,13 @@
 
 Author: Anders Mouanga (salticecream)
 Description: A testing suite that tests the vectors module.
-Every function is tested with at least one special case and one general case.
 
 """
+from time import sleep
 
 # change to True, if you want to run these unit tests on your own
+# in that case you simply need to run this file
+
 MANUAL_TESTING = True
 
 # custom abs() function, because importing it didn't work (python sucks too much)
@@ -84,12 +86,10 @@ class TestRot:
     def test3(self):
         # REMEMBER that negative y means up
         vec = Vector(0, -1)
-        print(vec.rot())
         assert vec.rot() == pi/2
 
     def test4(self):
         vec = Vector(0, 1)
-        print(vec.rot())
         assert vec.rot() == -pi/2
 
 
@@ -122,25 +122,21 @@ if MANUAL_TESTING:
 
     # test equals()
     equals = TestEquals()
-
     equals.test1()
     equals.test2()
 
     # test add()
     add = TestAdd()
-
     add.test1()
     add.test2()
 
     # test sub()
     sub = TestSub()
-
     sub.test1()
     sub.test2()
 
     # test len()
     len = TestLen()
-
     len.test1()
     len.test2()
 
@@ -148,14 +144,27 @@ if MANUAL_TESTING:
     normalize = TestNormalize()
     normalize.test1()
 
+    # test scale()
     scale = TestScale()
     scale.test1()
     scale.test2()
 
     # test rot() (fail)
     rot = TestRot()
-
     rot.test1()
     rot.test2()
     rot.test3()
     rot.test4()
+
+    print("""all tests passed. obviously. of course they did. what, did you expect non-working code from me?
+are you serious? me, anders mouanga????? writing some kind of SOFTWARE BUG????? 
+this is the best piece of software you'll ever see in your life. 
+i don't even need tests, i just did this for fun because i knew they would all pass. 
+the computer itself fears me, the COMPILER ITSELF. FEARS. ME. 
+i could write "assert False" and still not crash. 
+i can make code inside of a "while False" loop run. 
+i am the inventor of the first O(log n) sorting algorithm. 
+i once forced the computer to divide by zero for me. then i noticed it was getting a little slow so i started doing all of the CPU arithmetic in my head instead.
+in this way i simulated multi-molecular quantum physics in the time it takes for your useless little machine to perform a clock cycle. 
+anyway, you're gonna read this text if you doubt me for some reason and run the tests yourself instead of letting pytest do it for you. and you're gonna realize i'm damn right.""")
+    sleep(10)
