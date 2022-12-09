@@ -9,7 +9,7 @@ from time import sleep
 # change to True, if you want to run these unit tests on your own
 # in that case you simply need to run this file
 
-MANUAL_TESTING = True
+MANUAL_TESTING = False
 
 # custom abs() function, because importing it didn't work (python sucks too much)
 def abs(x):
